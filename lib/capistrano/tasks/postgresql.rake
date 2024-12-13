@@ -1,3 +1,4 @@
+require 'stringio'
 require 'capistrano/postgresql/helper_methods'
 require 'capistrano/postgresql/password_helpers'
 require 'capistrano/postgresql/psql_helpers'
