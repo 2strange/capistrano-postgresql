@@ -69,12 +69,24 @@ set :pg_username, 'pg_username_here'
 set :pg_password, ENV['yoursite_PGPASS']
 set :pg_extensions, ['citext','hstore']
 set :pg_encoding, 'UTF-8'
-set :pg_pool, '100'
+set :pg_pool, 100
+set :pg_port, 5432
+set :pg_disable_gssencmode, false   # Set to true to disable gssencmode ( may fix: Segmentation fault )
 ```
 
 Finally, to setup the server(s), run:
 
     $ bundle exec cap development setup
+
+
+
+### Updates (different from the original plugin)
+
+- Support for Ruby 3.2 upwards .. Vinnehboom, jesperronn, 2strange
+- Support for non-default pg_port .. davegudge
+- Support for disabling gssencmode .. 2strange ( to prevent Segmentation fault .. https://github.com/ged/ruby-pg/issues/311 )
+
+
 
 ### Requirements
 * Be sure to remove `config/database.yml` from your application's version control.

@@ -12,7 +12,7 @@ namespace :load do
     set :pg_env, -> { fetch(:rails_env) || fetch(:stage) }
     set :pg_encoding, 'unicode'
     set :pg_database, -> { "#{fetch(:application)}_#{fetch(:stage)}" }
-    set :pg_pool, 5
+    set :pg_pool, 13
     set :pg_username, -> { fetch(:pg_database) }
     set :pg_generate_random_password, nil
     set :pg_ask_for_password, nil
@@ -29,6 +29,7 @@ namespace :load do
     set :pg_system_db, 'postgres'
     set :pg_use_hstore, false
     set :pg_extensions, []
+    set :pg_disable_gssencmode, false
     set :pg_templates_path, 'config/deploy/templates'
   end
 end
