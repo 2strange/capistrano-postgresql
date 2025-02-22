@@ -17,9 +17,17 @@ process:
 * Generates and populates `database.yml` file on all release nodes (using ssh)
 * Support for multi-server setup: separate `db` and `app` nodes ( versions > 4.0 )
 
-**Note**: gem version 4 introduces some breaking changes. If you installed gem
-version 3 or below you might want to follow the
-[upgrade instructions](https://github.com/capistrano-plugins/capistrano-postgresql/wiki/Upgrade-instructions-for-gem-version-4.0).
+
+---
+
+### Updates (different from the original plugin)
+
+- Support for Ruby 3.2 upwards .. Vinnehboom, jesperronn, 2strange
+- Support for non-default pg_port .. davegudge
+- Support for disabling gssencmode .. 2strange ( to prevent Segmentation fault .. https://github.com/ged/ruby-pg/issues/311 )
+
+---
+
 
 ### Installation
 
@@ -77,15 +85,6 @@ set :pg_disable_gssencmode, false   # Set to true to disable gssencmode ( may fi
 Finally, to setup the server(s), run:
 
     $ bundle exec cap development setup
-
-
-
-### Updates (different from the original plugin)
-
-- Support for Ruby 3.2 upwards .. Vinnehboom, jesperronn, 2strange
-- Support for non-default pg_port .. davegudge
-- Support for disabling gssencmode .. 2strange ( to prevent Segmentation fault .. https://github.com/ged/ruby-pg/issues/311 )
-
 
 
 ### Requirements
