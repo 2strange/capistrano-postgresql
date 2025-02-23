@@ -34,8 +34,8 @@ process:
 Put the following in your application's `Gemfile`:
 
     group :development do
-      gem 'capistrano', '~> 3.11'
-      gem 'capistrano-postgresql', '~> 6.2'
+        gem "capistrano",             require: false
+        gem "capistrano-postgresql",  require: false,   github: "2strange/capistrano-postgresql"
     end
 
 Then:
