@@ -5,7 +5,9 @@ module Capistrano
     module PasswordHelpers
 
       def generate_random_password
-        SecureRandom.hex(10)
+        # SecureRandom.hex(10)
+        # => use more secure password generation ( 0-9 + a-z )
+        SecureRandom.base36(42)
       end
 
       def pg_password_generate
