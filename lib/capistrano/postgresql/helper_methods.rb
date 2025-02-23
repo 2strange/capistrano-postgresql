@@ -35,6 +35,7 @@ module Capistrano
               port: fetch(:pg_port),
               timeout: fetch(:pg_timeout)
           }.each { |option_name,option_value| s.puts "  #{option_name}: #{option_value}" } # Yml does not support tabs. There are two spaces leading the config option line
+          s.puts 'gssencmode: "disable"'  if fetch(:pg_disable_gssencmode, false)  # Add gssencmode: "disable" to the end of the file
           s.string
         end
       end
