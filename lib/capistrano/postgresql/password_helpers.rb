@@ -7,7 +7,8 @@ module Capistrano
       def generate_random_password
         # SecureRandom.hex(10)
         # => use more secure password generation ( 0-9 + a-z )
-        SecureRandom.base36(42)
+        # SecureRandom.base36(42)               # method not available.. so we use hex and convert it to base36
+        SecureRandom.hex(28).to_i(16).to_s(36)  # generates ~ 44 characters
       end
 
       def pg_password_generate
